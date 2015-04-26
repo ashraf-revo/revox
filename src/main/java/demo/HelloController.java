@@ -33,6 +33,13 @@ public class HelloController {
         personRepositery.save(new Person(name, email, password));
         return true;
     }
+    @RequestMapping(value = "/checkuser/{email}/{password}/")
+    public boolean checkuser(
+                           @PathVariable("email") String email,
+                           @PathVariable("password") String password) {
+        Person person = personRepositery.findByEmailAndPassword(email, password);
+        return person != null;
+    }
 
     @RequestMapping(value = "/addnumber/{user}/{Username}/{phone}/")
     public boolean addnumber(@PathVariable("user") String user,

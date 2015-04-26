@@ -9,4 +9,6 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  */
 public interface PersonRepositery extends CrudRepository<Person, Long> {
     public Person findByEmail(String name);
+
+    public Person findByEmailAndPassword(String email, String password);
 }
